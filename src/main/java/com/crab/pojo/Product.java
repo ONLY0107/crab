@@ -12,9 +12,9 @@ public class Product {
 
     private String subtitle;
 
-    private String mainImage;
+    private String imageMain;
 
-    private String subImages;
+    private String imageAdd;
 
     private String detail;
 
@@ -28,13 +28,13 @@ public class Product {
 
     private Date updateTime;
 
-    public Product(Integer id, Integer categoryId, String name, String subtitle, String mainImage, String subImages, String detail, BigDecimal price, Integer stock, Integer status, Date createTime, Date updateTime) {
+    public Product(Integer id, Integer categoryId, String name, String subtitle, String imageMain, String imageAdd, String detail, BigDecimal price, Integer stock, Integer status, Date createTime, Date updateTime) {
         this.id = id;
         this.categoryId = categoryId;
         this.name = name;
         this.subtitle = subtitle;
-        this.mainImage = mainImage;
-        this.subImages = subImages;
+        this.imageMain = imageMain;
+        this.imageAdd = imageAdd;
         this.detail = detail;
         this.price = price;
         this.stock = stock;
@@ -79,20 +79,20 @@ public class Product {
         this.subtitle = subtitle == null ? null : subtitle.trim();
     }
 
-    public String getMainImage() {
-        return mainImage;
+    public String getImageMain() {
+        return imageMain;
     }
 
-    public void setMainImage(String mainImage) {
-        this.mainImage = mainImage == null ? null : mainImage.trim();
+    public void setImageMain(String imageMain) {
+        this.imageMain = imageMain == null ? null : imageMain.trim();
     }
 
-    public String getSubImages() {
-        return subImages;
+    public String getImageAdd() {
+        return imageAdd;
     }
 
-    public void setSubImages(String subImages) {
-        this.subImages = subImages == null ? null : subImages.trim();
+    public void setImageAdd(String imageAdd) {
+        this.imageAdd = imageAdd == null ? null : imageAdd.trim();
     }
 
     public String getDetail() {
