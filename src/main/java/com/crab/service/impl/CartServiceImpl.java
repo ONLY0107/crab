@@ -128,7 +128,7 @@ public class CartServiceImpl implements ICartService {
 
                 Product product = productMapper.selectByPrimaryKey(cartItem.getProductId());
                 if(product != null){
-                    cartProductVo.setProductMainImage(product.getMainImage());
+                    cartProductVo.setProductMainImage(product.getImageMain());
                     cartProductVo.setProductName(product.getName());
                     cartProductVo.setProductSubtitle(product.getSubtitle());
                     cartProductVo.setProductStatus(product.getStatus());

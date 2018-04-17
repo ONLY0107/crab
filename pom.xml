@@ -275,6 +275,12 @@
     <version>4.0.0-b01</version>
   </dependency>
 
+  <dependency>
+    <groupId>com.alipay.sdk</groupId>
+    <artifactId>alipay-sdk-java</artifactId>
+    <version>3.0.0</version>
+  </dependency>
+
 </dependencies>
 
 
@@ -292,7 +298,7 @@
     </configuration>
  </plugin>
 
-  <!-- geelynote maven的核心插件之-complier插件默认只支持编译Java 1.4，因此需要加上支持高版本jre的配置，在pom.xml里面加上 增加编译插件 -->
+
   <plugin>
     <groupId>org.mybatis.generator</groupId>
     <artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -304,20 +310,20 @@
   </plugin>
 
 
-
+  <!-- geelynote maven的核心插件之-complier插件默认只支持编译Java 1.4，因此需要加上支持高版本jre的配置，在pom.xml里面加上 增加编译插件 -->
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-compiler-plugin</artifactId>
- <configuration>
-  <source>1.7</source>
-  <target>1.7</target>
-  <encoding>UTF-8</encoding>
-
-<compilerArguments>
-  <extdirs>${project.basedir}/src/main/webapp/WEB-INF/lib</extdirs>
-</compilerArguments>
-</configuration>
+  <configuration>
+    <source>1.7</source>
+    <target>1.7</target>
+    <encoding>UTF-8</encoding>
+    <compilerArguments>
+      <extdirs>${project.basedir}/src/main/webapp/WEB-INF/lib</extdirs>
+    </compilerArguments>
+  </configuration>
 </plugin>
+
 </plugins>
 </build>
 </project>

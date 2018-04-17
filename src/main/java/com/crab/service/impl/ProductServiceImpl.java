@@ -42,10 +42,10 @@ public class ProductServiceImpl implements IProductService {
     public ServerResponse saveOrUpdateProduct(Product product){
         if(product != null)
         {
-            if(StringUtils.isNotBlank(product.getSubImages())){
-                String[] subImageArray = product.getSubImages().split(",");
+            if(StringUtils.isNotBlank(product.getImageAdd())){
+                String[] subImageArray = product.getImageAdd().split(",");
                 if(subImageArray.length > 0){
-                    product.setMainImage(subImageArray[0]);
+                    product.setImageMain(subImageArray[0]);
                 }
             }
 
@@ -99,8 +99,8 @@ public class ProductServiceImpl implements IProductService {
         productDetailVo.setId(product.getId());
         productDetailVo.setSubtitle(product.getSubtitle());
         productDetailVo.setPrice(product.getPrice());
-        productDetailVo.setMainImage(product.getMainImage());
-        productDetailVo.setSubImages(product.getSubImages());
+        productDetailVo.setMainImage(product.getImageMain());
+        productDetailVo.setSubImages(product.getImageAdd());
         productDetailVo.setCategoryId(product.getCategoryId());
         productDetailVo.setDetail(product.getDetail());
         productDetailVo.setName(product.getName());
@@ -146,7 +146,7 @@ public class ProductServiceImpl implements IProductService {
         productListVo.setName(product.getName());
         productListVo.setCategoryId(product.getCategoryId());
         productListVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix","http://img.happycrab.com/"));
-        productListVo.setMainImage(product.getMainImage());
+        productListVo.setMainImage(product.getImageMain());
         productListVo.setPrice(product.getPrice());
         productListVo.setSubtitle(product.getSubtitle());
         productListVo.setStatus(product.getStatus());

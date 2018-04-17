@@ -260,7 +260,7 @@ public class OrderServiceImpl implements IOrderService {
             orderItem.setUserId(userId);
             orderItem.setProductId(product.getId());
             orderItem.setProductName(product.getName());
-            orderItem.setProductImage(product.getMainImage());
+            orderItem.setProductImage(product.getImageMain());
             orderItem.setCurrentUnitPrice(product.getPrice());
             orderItem.setQuantity(cartItem.getQuantity());
             orderItem.setTotalPrice(BigDecimalUtil.mul(product.getPrice().doubleValue(),cartItem.getQuantity()));
@@ -394,7 +394,7 @@ public class OrderServiceImpl implements IOrderService {
 
 
         // (必填) 订单标题，粗略描述用户的支付目的。如“xxx品牌xxx门店当面付扫码消费”
-        String subject = new StringBuilder().append("happycrab扫码支付,订单号:").append(outTradeNo).toString();
+        String subject = new StringBuilder().append("crab扫码支付,订单号:").append(outTradeNo).toString();
 
 
         // (必填) 订单总金额，单位为元，不能超过1亿元
