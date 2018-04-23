@@ -44,13 +44,13 @@ public class ProductManageController {
         User user = (User)session.getAttribute(Const.CURRENT_USER);
         if(user == null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录,请登录管理员");
-
         }
+
         if(iUserService.checkAdminRole(user).isSuccess()){
             //填充我们增加产品的业务逻辑
             return iProductService.saveOrUpdateProduct(product);
         }else{
-            return ServerResponse.createByErrorMessage("无权限操作");
+            return ServerResponse.createByErrorMessage("不是管理员，无权限操作哦！");
         }
     }
 
@@ -65,7 +65,7 @@ public class ProductManageController {
         if(iUserService.checkAdminRole(user).isSuccess()){
             return iProductService.setSaleStatus(productId,status);
         }else{
-            return ServerResponse.createByErrorMessage("无权限操作");
+            return ServerResponse.createByErrorMessage("不是管理员，无权限操作哦！");
         }
     }
 
@@ -118,6 +118,13 @@ public class ProductManageController {
         }
     }
 
+    /**
+     * 上传
+     * @param session
+     * @param file
+     * @param request
+     * @return
+     */
     @RequestMapping("upload.do")
     @ResponseBody
     public ServerResponse upload(HttpSession session,@RequestParam(value = "upload_file",required = false) MultipartFile file,HttpServletRequest request){
@@ -128,7 +135,7 @@ public class ProductManageController {
         if(iUserService.checkAdminRole(user).isSuccess()){
             String path = request.getSession().getServletContext().getRealPath("upload");
             String targetFileName = iFileService.upload(file,path);
-            String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+targetFileName;
+            String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+targetFileName;///////////////////////
 
             Map fileMap = Maps.newHashMap();
             fileMap.put("uri",targetFileName);
@@ -140,6 +147,14 @@ public class ProductManageController {
     }
 
 
+    /**
+     * 富文本图片上传
+     * @param session
+     * @param file
+     * @param request
+     * @param response
+     * @return
+     */
     @RequestMapping("richtext_img_upload.do")
     @ResponseBody
     public Map richtextImgUpload(HttpSession session, @RequestParam(value = "upload_file",required = false) MultipartFile file, HttpServletRequest request, HttpServletResponse response){

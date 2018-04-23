@@ -22,7 +22,11 @@ public class ProductController {
     private IProductService iProductService;
 
 
-
+    /**
+     * 前台查看商品详情
+     * @param productId
+     * @return
+     */
     @RequestMapping("detail.do")
     @ResponseBody
     public ServerResponse<ProductDetailVo> detail(Integer productId){

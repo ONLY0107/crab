@@ -28,6 +28,13 @@ public class CategoryManageController {
     @Autowired
     private ICategoryService iCategoryService;
 
+    /**
+     * 增加商品分类
+     * @param session
+     * @param categoryName
+     * @param parentId
+     * @return
+     */
     @RequestMapping("add_category.do")
     @ResponseBody
     public ServerResponse addCategory(HttpSession session,String categoryName,@RequestParam(value = "parentId",defaultValue = "0") int parentId){
@@ -37,8 +44,7 @@ public class CategoryManageController {
         }
         //校验一下是否是管理员
         if(iUserService.checkAdminRole(user).isSuccess()){
-            //是管理员
-            //增加我们处理分类的逻辑
+            //是管理员，增加处理分类的逻辑
             return iCategoryService.addCategory(categoryName,parentId);
 
         }else{
@@ -46,6 +52,13 @@ public class CategoryManageController {
         }
     }
 
+    /**
+     * 设置分类的名字
+     * @param session
+     * @param categoryId
+     * @param categoryName
+     * @return
+     */
     @RequestMapping("set_category_name.do")
     @ResponseBody
     public ServerResponse setCategoryName(HttpSession session,Integer categoryId,String categoryName){
@@ -61,6 +74,12 @@ public class CategoryManageController {
         }
     }
 
+    /**
+     *得到本节点的id
+     * @param session
+     * @param categoryId
+     * @return
+     */
     @RequestMapping("get_category.do")
     @ResponseBody
     public ServerResponse getChildrenParallelCategory(HttpSession session,@RequestParam(value = "categoryId" ,defaultValue = "0") Integer categoryId){
@@ -76,6 +95,12 @@ public class CategoryManageController {
         }
     }
 
+    /**
+     * 得到本节点及孩子节点的
+     * @param session
+     * @param categoryId
+     * @return
+     */
     @RequestMapping("get_deep_category.do")
     @ResponseBody
     public ServerResponse getCategoryAndDeepChildrenCategory(HttpSession session,@RequestParam(value = "categoryId" ,defaultValue = "0") Integer categoryId){

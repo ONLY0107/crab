@@ -43,9 +43,9 @@ public class ProductServiceImpl implements IProductService {
         if(product != null)
         {
             if(StringUtils.isNotBlank(product.getImageAdd())){
-                String[] subImageArray = product.getImageAdd().split(",");
-                if(subImageArray.length > 0){
-                    product.setImageMain(subImageArray[0]);
+                String[] imageAddArray = product.getImageAdd().split(",");
+                if(imageAddArray.length > 0){
+                    product.setImageMain(imageAddArray[0]);
                 }
             }
 
@@ -100,14 +100,14 @@ public class ProductServiceImpl implements IProductService {
         productDetailVo.setSubtitle(product.getSubtitle());
         productDetailVo.setPrice(product.getPrice());
         productDetailVo.setMainImage(product.getImageMain());
-        productDetailVo.setSubImages(product.getImageAdd());
+        productDetailVo.setImageAdd(product.getImageAdd());
         productDetailVo.setCategoryId(product.getCategoryId());
         productDetailVo.setDetail(product.getDetail());
         productDetailVo.setName(product.getName());
         productDetailVo.setStatus(product.getStatus());
         productDetailVo.setStock(product.getStock());
 
-        productDetailVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix","http://img.happycrab.com/"));
+        productDetailVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix","http://img.crab.com/"));////////////////////////
 
         Category category = categoryMapper.selectByPrimaryKey(product.getCategoryId());
         if(category == null){

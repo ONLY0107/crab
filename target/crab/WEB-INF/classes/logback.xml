@@ -12,9 +12,11 @@
 
     <appender name="crab" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/crablog/crab.log</File>-->
-        <File>/developer/apache-tomcat-7.0.73/logs/crab.log</File>
+       <!-- <File>/developer/apache-tomcat-7.0.73/logs/crab.log</File> -->
+        <File>/developer/apache-tomcat-9.0.0.M26/logs/crab.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/developer/apache-tomcat-7.0.73/logs/crab.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <!--<fileNamePattern>/developer/apache-tomcat-7.0.73/logs/crab.log.%d{yyyy-MM-dd}.gz</fileNamePattern> -->
+            <fileNamePattern>/developer/apache-tomcat-9.0.0.M26/logs/crab.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <append>true</append>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
@@ -26,9 +28,11 @@
 
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/crablog/error.log</File>-->
-        <File>/developer/apache-tomcat-7.0.73/logs/error.log</File>
+       <!-- <File>/developer/apache-tomcat-7.0.73/logs/error.log</File> -->
+        <File>/developer/apache-tomcat-9.0.0.M26/logs/error.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/devsoft/apache-tomcat-7.0.73/logs/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+          <!--  <fileNamePattern>/devsoft/apache-tomcat-7.0.73/logs/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern> -->
+            <fileNamePattern>/devsoft/apache-tomcat-9.0.0.M26/logs/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <!--<fileNamePattern>d:/crablog/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
             <append>true</append>
             <maxHistory>10</maxHistory>
@@ -50,7 +54,7 @@
 
 
 
-    <!-- geelynote mybatis log 日志 -->
+    <!-- mybatis log 日志 -->
 
     <logger name="com.crab.dao" level="DEBUG"/>
 

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.crab.dao.CartMapper" >
+  <resultMap id="BaseResultMap" type="com.crab.pojo.HotSale" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="product_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sale_month_number" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sale_rank" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, product_id, sale_month_number, sale_rank,  create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from crab_hot_sale
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from crab_hot_sale
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.crab.pojo.HotSale" >
+    insert into crab_hot_sale (id,  product_id,
+      sale_month_number, sale_rank, create_time,
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER},
+      #{saleMonthNumber,jdbcType=INTEGER}, #{saleRank,jdbcType=INTEGER}, now(),
+      now())
+  </insert>
+  <insert id="insertSelective" parameterType="com.crab.pojo.HotSale" >
+    insert into crab_hot_sale
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="saleMonthNumber != null" >
+        sale_month_number,
+      </if>
+      <if test="saleRank != null" >
+        sale_rank,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="saleMonthNumber != null" >
+        #{saleMonthNumber,jdbcType=INTEGER},
+      </if>
+      <if test="saleRank != null" >
+        #{saleRank,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        now(),
+      </if>
+      <if test="updateTime != null" >
+        now(),
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.crab.pojo.HotSale" >
+    update crab_hot_sale
+    <set >
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="saleMonthNumber != null" >
+        sale_month_number = #{saleMonthNumber,jdbcType=INTEGER},
+      </if>
+      <if test="saleRank != null" >
+        sale_rank = #{saleRank,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = now(),
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.crab.pojo.HotSale" >
+    update crab_hot_sale
+    set product_id = #{productId,jdbcType=INTEGER},
+        sale_month_number = #{saleMonthNumber,jdbcType=INTEGER},
+        sale_rank = #{saleRank,jdbcType=INTEGER},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = now()
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

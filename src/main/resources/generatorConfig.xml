@@ -84,7 +84,8 @@
         <table tableName="crab_administrator" domainObjectName="Administrator" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
         <table tableName="crab_normaluser" domainObjectName="Normaluser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
+        <table tableName="crab_hot_sale" domainObjectName="HotSale" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
-        <!-- geelynote mybatis插件的搭建 -->
+        <!--mybatis插件的搭建 -->
     </context>
 </generatorConfiguration>
